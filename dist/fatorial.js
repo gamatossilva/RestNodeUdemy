@@ -11,3 +11,4 @@ exports.fatorial = (num) => {
 /*module.exports = {
     fatorial: fatorial
 }*/ 
+//# sourceMappingURL=fatorial.js.map
