@@ -80,4 +80,8 @@ export class Server {
     bootstrap(routers: Router[] = []): Promise<Server>{
         return this.initializeDb().then(() => this.initRoutes(routers).then(() => this))
     }
+
+    shutDown(){
+        return mongoose.disconnect().then(() => this.application.close())
+    }
 }
