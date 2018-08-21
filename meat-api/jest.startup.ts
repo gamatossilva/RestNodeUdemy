@@ -15,6 +15,14 @@ const beforeAllTests = () => {
     server = new Server()
     return server.bootstrap([usersRouter, reviewsRouter])
         .then(() => User.remove({}).exec())
+        .then(() => {
+            let admin = new User()
+            admin.name = 'admin',
+            admin.email = 'admin@email.com',
+            admin.password = '123456',
+            admin.profiles = ['admin', 'user']
+            return admin.save()
+        })
         .then(() => Review.remove({}).exec())
 }
 
